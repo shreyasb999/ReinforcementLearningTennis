@@ -1,0 +1,31 @@
+# Configuration file for A2C training on Unity ML-Agents Tennis multi-agent environment
+
+# --- Environment Configuration ---
+env:
+  type: "unity"   # Environment type
+  name: "unity"   # Arbitrary name identifier
+  unity_path: "/Tennis_Windows_x86_64/Tennis.exe"  # Path to Unity executable
+  brain_name: "TennisBrain"  # Name of the brain (agent controller) inside the Unity environment
+  seed: 42  # Random seed for reproducibility
+
+# --- A2C Hyperparameters ---
+a2c:
+  gamma: 0.99                 # Discount factor for future rewards
+  gae_lambda: 0.95            # GAE (Generalized Advantage Estimation) smoothing parameter
+  initial_entropy_coef: 0.02  # Entropy coefficient to encourage exploration
+  reward_scale: 10.0          # Scale factor applied to environment rewards
+  lr: 3e-4                    # Learning rate for actor and critic networks
+
+# --- Training Parameters ---
+train:
+  total_episodes: 1000     # Total number of training episodes
+  timesteps: 2048          # Number of timesteps per rollout
+  train_logs_dir: "logs/train/"     # Directory to store training CSV logs
+  save_dir: "saved_models/"         # Directory to save trained model checkpoints
+  eval_smoothing_alpha: 0.85        # Smoothing factor α for evaluation
+
+# --- Network Architecture ---
+network:
+  hidden_sizes: [256, 256]   # Hidden layer sizes for shared trunk
+  activation: "relu"         # Activation function for hidden layers
+  output_activation: "tanh"  # Output activation for actor head

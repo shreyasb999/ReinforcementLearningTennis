@@ -1,0 +1,36 @@
+# Configuration file for PPO training on Unity ML-Agents Tennis multi-agent environment
+
+# --- Environment Configuration ---
+env:
+  type: "unity"   # Environment type
+  name: "unity"   # Arbitrary name identifier
+  unity_path: "/Tennis_Windows_x86_64/Tennis.exe"  # Path to Unity executable
+  brain_name: "TennisBrain"  # Name of the brain (agent controller) inside the Unity environment
+  seed: 42  # Random seed for reproducibility
+
+# --- PPO Hyperparameters ---
+ppo:
+  gamma: 0.99              # Discount factor for future rewards
+  gae_lambda: 0.95         # GAE (Generalized Advantage Estimation) smoothing parameter
+  clip_eps: 0.2            # PPO clipping epsilon
+  initial_entropy_coef: 0.02    # Initial entropy coefficient to encourage exploration
+  reward_scale: 10.0            # Scale factor applied to environment rewards
+  epochs: 6                # Number of training epochs per PPO update
+  lr_actor: 3e-4           # Learning rate for actor network
+  lr_critic: 3e-4          # Learning rate for critic network
+  batch_size: 1024         # Batch size used in PPO updates
+
+# --- Training Parameters ---
+train:
+  total_episodes: 1000    # Total number of training episodes
+  timesteps: 2048         # Number of timesteps per episode (used for collecting rollouts)
+  train_logs_dir: "logs/train/"     # Directory to store training CSV logs
+  ppo_logs_dir: "logs/agents/"      # Directory to store per-agent PPO logs
+  save_dir: "saved_models/"         # Directory to save trained model checkpoints
+  video_dir: "videos/"              # Directory to save evaluation videos
+
+# --- Network Architecture ---
+network:
+  hidden_sizes: [256, 256]   # Hidden layer sizes for actor and critic networks
+  activation: "relu"         # Activation function for hidden layers
+  output_activation: "tanh"  # Output activation function for actor network
