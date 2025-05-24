@@ -49,4 +49,4 @@ The PPO code is written by Shreyas Bhavsar (Me) and Georgios Kotnis (https://git
 The A2C code is written by Shreyas Bhavsar.
 
 To check out the entire project, which compares PPO vs DDPG vs A2C - you can check out our original project repo - 
-https://github.com/AkshayaJeyaram/TennisReinforcementLearning.git
+https://github.com/AkshayaJeyaram/TennisReinforcementLearning
