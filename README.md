@@ -43,7 +43,9 @@ Once these steps have been followed, open the respective PPO and A2C folders and
 # Additional Notes and Credits
 
 This code was a part of a group project for Reinforcement Learning module during my MSc Data Science Course.
+
 The PPO code is developed by Shreyas Bhavsar and Georgios Kotnis.
+
 The A2C code is written by Shreyas Bhavsar.
 
 To check out the entire project, which compares PPO vs DDPG vs A2C - you can check out our original project repo - 
